@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.honeywell.android.lyric" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.any" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher_lyric" android:label="@string/app_name" android:largeHeap="true" android:name="com.honeywell.acs.graniteapp.StartApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:supportsRtl="false" android:theme="@style/AppTheme.NoActionBar" android:usesCleartextTraffic="false">
+        <activity android:exported="false" android:name="com.localytics.android.PushTrackingActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.honeywell.granite.graniteui.presentation.activity.login.LoginActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="honlyric"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.diy.DiyCommonFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="orientation|screenSize" android:name="com.honeywell.granite.graniteui.presentation.activity.dashboard.DashBoardActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="lyric.alarmnet.com" android:pathPrefix="/call" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="childev.connectedlyric.com" android:pathPrefix="/call" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.honeywell.granite.graniteui.presentation.activity.oneclickdrenrolment.OneClickDREnrolmentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="drenrolment" android:scheme="hhlyric"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.alert.SmartCueAlertsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.login.HiddenSettingsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.SettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.graniteui.presentation.activity.appupgrade.AppUpgradeDialogActivity" android:theme="@style/AppUpdateDialogTheme">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_UPGRADE_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.appupgrade.AppUpgradeLearnMoreActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.contractor.ContractorActivity" android:screenOrientation="behind"/>
+        <service android:exported="false" android:name="com.honeywell.granite.graniteui.util.LogOperationsIntentService"/>
+        <receiver android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.receivers.GeofenceWatchDogReceiver">
+            <intent-filter>
+                <action android:name="watchdog.geofence"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.honeywell.granite.graniteui.presentation.receivers.DeviceRebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.honeywell.granite.graniteui.presentation.receivers.PackageUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.honeywell.granite.graniteui.presentation.receivers.LocationProviderChangedReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.honeywell.granite.graniteui.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.graniteui.presentation.activity.securitypin.SecurityPinActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_SECURITY_PIN_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.honeywell.granite.graniteui.presentation.activity.securitypin.TouchIdActivity" android:screenOrientation="behind" android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_TOUCH_ID_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.honeywell.granite.graniteui.presentation.activity.securitypin.SecurityPinDialogActivity" android:screenOrientation="behind" android:theme="@style/AppUpdateDialogTheme">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_SECURITY_ALERT_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.honeywell.granite.graniteui.presentation.activity.ClientTimeErrorDialogActivity" android:screenOrientation="behind" android:theme="@style/AppUpdateDialogTheme">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_CLIENT_TIME_ERROR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.honeywell.granite.graniteui.presentation.activity.UnSecureDeviceDisclaimerDialogActivity" android:screenOrientation="behind" android:theme="@style/AppUpdateDialogTheme">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.LAUNCH_ROOTED_DEVICE_ALERT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.dashboard.DashboardSimpleViewActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.graniteui.presentation.fragment.settings.PrivacyPolicyActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.graniteui.presentation.activity.dashboard.PrimaryCardActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.honeywell.granite.graniteui.presentation.activity.dashboard.hhwhatsnew.HHIntroActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.ScheduleActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.ModifyScheduleActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.PrioritySelectionActivity" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.SensorActivity" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.SensorSettingsActivity" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.presentation.activity.HumDehumActivity" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.domestichotwater.presentation.schedule.DHWScheduleActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.ResetWIFIFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.AddSensorFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.StormReconfigureFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.StormBackLightFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.HeroFeatureFlowActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.VentilationModeActivity" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.PrimaryCardModeMenuListActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.HeatingIntegrationHelpActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.comfortsolution.geofence.DiyDeviceGeofenceActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.comfortsolution.diy.herofeature.presentation.TimeScheduleActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.honeywell.granite.comfortsolution.diy.storm.selectroom.presentation.DIYStormRoomSelectFlowActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.comfortsolution.diy.drenrolment.settings.presentation.DRSettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:name="com.honeywell.granite.comfortsolution.diy.storm.movesensor.presentation.MoveSensorFlowActivity"/>
+        <activity android:name="com.honeywell.granite.comfortsolution.presentation.activity.StatSensorDetailActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.comfortsolution.presentation.activity.PrimaryCardMenuListActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.wldsolution.presentation.activity.WLDAlertsActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.SensorAlertActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.SecurityInfoActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.DiySensorFlowPresentorActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.AlarmSignalTestActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.AlexaFlowActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.systemTest.SystemTestFlowActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.zwave.presentation.activity.ZWaveSettingsFlowActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.zwave.presentation.activity.ZwaveOfflineHelpInfoActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.zwave.presentation.activity.ZwaveLockOfflineHelpInfoActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.honeywell.acs.securitycard.presentation.fragment.SecurityAlarmHandlerActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.ResetWifiActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.GeofenceFlowPresentorActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.SystemIssueListActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.acs.securitycard.presentation.SystemIssueDetailActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.videosolution.presentation.activity.ClipListActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.videosolution.presentation.activity.SettingGuideActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.videosolution.presentation.activity.AlertsDetailActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.videosolution.presentation.activity.ResetWifiActivity"/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.videosolution.diy.faceRecognition.presentation.activity.DiyFaceRecognitionFlowPresenterActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.videosolution.presentation.DiyGeofenceFlowPresentorActivity"/>
+        <activity android:name="com.honeywell.granite.partnersolutions.skybell.SkybellMainActivity" android:theme="@style/AppTheme.NoActionBar.Trasnlucent"/>
+        <service android:name="com.honeywell.granite.services.domain.geofence.tracking.GeofenceLocMonitorIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.honeywell.granite.services.domain.geofence.GeofenceSendManager" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.honeywell.granite.services.domain.pushnotification.LyricGCMListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.honeywell.granite.services.domain.login.ReloginService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.honeywell.granite.services.domain.RELOGIN_FROM_BOOT_ACTION"/>
+                <action android:name="com.honeywell.granite.services.domain.RELOGIN_FROM_SUSPEND_ACTION"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.honeywell.granite.services.domain.appupgrade.AppUpgradeInfoService"/>
+        <service android:exported="false" android:name="com.honeywell.granite.services.domain.geofence.GeofenceService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.honeywell.granite.services.domain.geofence.GeofenceJobSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.honeywell.granite.services.domain.geofence.tracking.GeofenceLocMonitorBroadcastReceiver">
+            <intent-filter>
+                <action android:name="GeofenceLocMonitorIntentService.GeofenceEventCopy"/>
+                <action android:name="GeofenceLocMonitorIntentService.GeofenceFusedLocationUpdateEvent"/>
+                <action android:name="GeofenceLocMonitorIntentService.GeofencePassiveLocationUpdateEvent"/>
+                <action android:name="GeofenceLocMonitorIntentService.GeofenceCurrentLocationUpdateReceivedEvent"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAhaid39eZw-a7NuxJ2msIQXUoOcfc4t-M"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.framework.diy.presentation.activity.DiyBaseActivity" android:screenOrientation="behind"/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.honeywell.granite.framework.presentation.activity.LyricNoNetworkActivity" android:screenOrientation="behind" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.framework.diy.presentation.activity.DiyInfoActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.framework.presentation.activity.VideoWebViewActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.framework.diy.presentation.activity.DiyGeofenceActivity"/>
+        <activity android:exported="false" android:name="com.honeywell.granite.framework.presentation.activity.InfoActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.framework.presentation.activity.SightCallCustomerSurvey" android:screenOrientation="behind" android:theme="@style/AppTheme.LyricTablet"/>
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false"/>
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <provider android:authorities="com.honeywell.android.lyric.universalinitprovider" android:enabled="@bool/universal_init_provider_enabled" android:exported="false" android:initOrder="@integer/universal_init_provider_order" android:name="com.sightcall.universal.internal.provider.UniversalInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:foregroundServiceType="mediaProjection" android:name="com.sightcall.universal.scenario.ScenarioService"/>
+        <activity android:alwaysRetainTaskState="false" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.sightcall.universal.ui.UniversalDeeplinkReceiver" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity-alias android:name="com.sightcall.universal.internal.ui.UniversalDeeplinkReceiver" android:targetActivity="com.sightcall.universal.ui.UniversalDeeplinkReceiver"/>
+        <activity-alias android:enabled="@bool/universal_feature_deeplink_scheme" android:name="com.sightcall.universal.UniversalDeeplinkReceiverScheme" android:targetActivity="com.sightcall.universal.ui.UniversalDeeplinkReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/universal_feature_deeplink_scheme"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:enabled="@bool/universal_feature_deeplink_uri" android:name="com.sightcall.universal.UniversalDeeplinkReceiverUri" android:targetActivity="com.sightcall.universal.ui.UniversalDeeplinkReceiver">
+            <intent-filter android:autoVerify="@bool/universal_feature_auto_verify_app_links">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="@string/universal_feature_deeplink_uri"/>
+                <data android:host="@string/universal_feature_deeplink_uri_secondary"/>
+                <data android:host="@string/universal_feature_deeplink_uri_tertiary"/>
+                <data android:host="@string/universal_feature_deeplink_uri_quaternary"/>
+                <data android:pathPattern="/call/..*"/>
+                <data android:pathPattern="/mobile/..*"/>
+                <data android:pathPattern="/app_webrtc/..*"/>
+                <data android:pathPattern="/register/..*"/>
+                <data android:pathPattern="/debug/..*"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:enabled="@bool/universal_feature_loading_activity" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.sightcall.universal.ui.UniversalLoadingActivity" android:taskAffinity="com.honeywell.android.lyric.universal.loading" android:theme="@style/universal_Theme.Activity.Loading"/>
+        <meta-data android:name="com.sightcall.universal.LoadingActivity" android:value="com.sightcall.universal.ui.UniversalLoadingActivity"/>
+        <activity android:excludeFromRecents="true" android:name="com.sightcall.universal.permission.PermissionsActivity" android:taskAffinity="com.honeywell.android.lyric.universal.loading" android:theme="@style/universal_Theme.Activity.Dialog.NoDim"/>
+        <activity android:enabled="@bool/universal_feature_agent_notifications" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.sightcall.universal.agent.UniversalAgentCallPendingActivity" android:noHistory="true" android:theme="@style/universal_Theme.Activity.Dialog.NoDim"/>
+        <activity android:launchMode="singleTask" android:name="com.sightcall.universal.internal.ui.CallActivity" android:screenOrientation="sensor" android:taskAffinity="com.honeywell.android.lyric.universal.call" android:theme="@style/universal_Theme.Activity.Call" android:windowSoftInputMode="adjustNothing">
+            <meta-data android:name="com.samsung.android.non_immersive" android:value="true"/>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.sightcall.universal.internal.ar.ArActivity" android:screenOrientation="nosensor" android:taskAffinity="com.honeywell.android.lyric.universal.call" android:theme="@style/universal_Theme.Activity.Call" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="com.samsung.android.non_immersive" android:value="true"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.sightcall.universal.internal.ui.SurveyActivity" android:noHistory="true" android:theme="@style/universal_Theme.Activity.Dialog.NoDim"/>
+        <provider android:authorities="com.honeywell.android.lyric.universalfileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.sightcall.universal.internal.UniversalFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/universal_file_provider_paths"/>
+        </provider>
+        <service android:enabled="true" android:exported="false" android:name="com.sightcall.universal.internal.location.LocationService"/>
+        <service android:enabled="@bool/universal_feature_fcm" android:exported="false" android:name="com.sightcall.universal.fcm.FcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="true" android:name="com.sightcall.universal.media.UploadReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.sightcall.universal.internal.receiver.UniversalNotificationBroadcastReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.sightcall.universal.media.UploaderService"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.idaas.domain.customtab.CustomTabActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="oauth2redirect" android:scheme="hhapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.honeywell.granite.idaas.domain.webview.WebviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.honeywell.android.lyric.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.honeywell.android.lyric.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.honeywell.android.lyric.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:name="com.microsoft.appcenter.distribute.DeepLinkActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="updates" android:path="/" android:scheme="appcenter"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.microsoft.appcenter.distribute.DownloadManagerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.honeywell.android.lyric.helpshift.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.helpshift.support.providers.HelpshiftFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/hs__provider_paths"/>
+        </provider>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.helpshift.support.activities.ParentActivity" android:theme="@style/Helpshift.Theme.Activity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.helpshift.support.HSReview" android:theme="@style/Helpshift.Theme.Dialog"/>
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="@string/ll_app_key"/>
+        <receiver android:enabled="@bool/ll_referral_receiver_enabled" android:exported="true" android:name="com.localytics.android.ReferralReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="@bool/ll_fcm_push_services_enabled" android:exported="true" android:name="com.localytics.android.FirebaseTokenService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="@bool/ll_fcm_push_services_enabled" android:exported="true" android:name="com.localytics.android.FirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="@bool/ll_places_enabled" android:name="com.localytics.android.LocationUpdateReceiver"/>
+        <receiver android:enabled="@bool/ll_places_enabled" android:name="com.localytics.android.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="@bool/ll_places_background_service_enabled" android:exported="true" android:name="com.localytics.android.BackgroundService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

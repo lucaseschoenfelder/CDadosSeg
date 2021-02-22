@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.linguee.linguee" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="true" android:allowTaskReparenting="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_launcher_name" android:name="com.linguee.linguee.LingueeApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation|screenSize" android:label="@string/app_launcher_name" android:launchMode="singleTask" android:name="com.linguee.linguee.MainActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.linguee.gr" android:pathPattern="\\/.*\\/μετάφραση\\/.*.html"/>
+                <data android:host="cn.linguee.com" android:pathPattern="\\/.*\\/翻譯\\/.*.html"/>
+                <data android:host="www.linguee.it" android:pathPattern="\\/.*\\/traduzione\\/.*.html"/>
+                <data android:host="www.linguee.cz" android:pathPattern="\\/.*\\/překlad\\/.*.html"/>
+                <data android:host="et.linguee.com" android:pathPattern="\\/.*\\/tõlge\\/.*.html"/>
+                <data android:host="www.linguee.es" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="www.linguee.ru" android:pathPattern="\\/.*\\/перевод\\/.*.html"/>
+                <data android:host="www.linguee.nl" android:pathPattern="\\/.*\\/vertaling\\/.*.html"/>
+                <data android:host="www.linguee.pt" android:pathPattern="\\/.*\\/traducao\\/.*.html"/>
+                <data android:host="www.linguee.pe" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="lv.linguee.com" android:pathPattern="\\/.*\\/tulkojumi\\/.*.html"/>
+                <data android:host="lt.linguee.com" android:pathPattern="\\/.*\\/vertimas\\/.*.html"/>
+                <data android:host="ro.linguee.com" android:pathPattern="\\/.*\\/traducere\\/.*.html"/>
+                <data android:host="www.linguee.pl" android:pathPattern="\\/.*\\/tłumaczenie\\/.*.html"/>
+                <data android:host="www.linguee.fr" android:pathPattern="\\/.*\\/traduction\\/.*.html"/>
+                <data android:host="bg.linguee.com" android:pathPattern="\\/.*\\/превод\\/.*.html"/>
+                <data android:host="www.linguee.de" android:pathPattern="\\/.*\\/uebersetzung\\/.*.html"/>
+                <data android:host="www.linguee.dk" android:pathPattern="\\/.*\\/oversættelse\\/.*.html"/>
+                <data android:host="www.linguee.com.br" android:pathPattern="\\/.*\\/traducao\\/.*.html"/>
+                <data android:host="www.linguee.cl" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="fi.linguee.com" android:pathPattern="\\/.*\\/käännös\\/.*.html"/>
+                <data android:host="www.linguee.hu" android:pathPattern="\\/.*\\/fordítás\\/.*.html"/>
+                <data android:host="www.linguee.jp" android:pathPattern="\\/.*\\/翻訳\\/.*.html"/>
+                <data android:host="www.linguee.pt" android:pathPattern="\\/.*\\/traducao\\/.*.html"/>
+                <data android:host="www.linguee.com.ar" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="www.linguee.se" android:pathPattern="\\/.*\\/översättning\\/.*.html"/>
+                <data android:host="www.linguee.mx" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="sk.linguee.com" android:pathPattern="\\/.*\\/preklad\\/.*.html"/>
+                <data android:host="mt.linguee.com" android:pathPattern="\\/.*\\/traduzzjoni\\/.*.html"/>
+                <data android:host="www.linguee.co" android:pathPattern="\\/.*\\/traduccion\\/.*.html"/>
+                <data android:host="sl.linguee.com" android:pathPattern="\\/.*\\/prevajanje\\/.*.html"/>
+                <data android:host="www.linguee.com" android:pathPattern="\\/.*\\/translation\\/.*.html"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_info" android:name="com.linguee.linguee.InfoActivity" android:parentActivityName="com.linguee.linguee.MainActivity"/>
+        <activity android:label="@string/string_offline_dictionaries" android:name="com.linguee.linguee.offlineDictionaries.OfflineDictionaryActivity" android:parentActivityName="com.linguee.linguee.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/string_settings" android:name="com.linguee.linguee.settings.SettingsActivity" android:parentActivityName="com.linguee.linguee.MainActivity"/>
+        <activity android:label="@string/translationServiceDescriptionActivityTitle" android:name="com.linguee.linguee.translationService.TranslationServiceDescriptionActivity" android:parentActivityName="com.linguee.linguee.settings.SettingsActivity"/>
+        <activity android:name="com.linguee.linguee.translationService.PermissionDescriptionActivity" android:parentActivityName="com.linguee.linguee.MainActivity"/>
+        <receiver android:name="com.linguee.linguee.translationService.TranslationServiceBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.linguee.linguee.translationService.SERVICE_UNEXPECTEDLY_STOPPED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.linguee.linguee.offlineDictionaries.DownloadBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.linguee.linguee.tools.MountEventBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.linguee.linguee.tools.NetworkStateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_privacy" android:name="com.linguee.linguee.PrivacyActivity" android:parentActivityName="com.linguee.linguee.offlineDictionaries.OfflineDictionaryActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/action_history" android:name="com.linguee.linguee.historyActivity.HistoryActivity" android:parentActivityName="com.linguee.linguee.MainActivity"/>
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <service android:name="com.linguee.linguee.translationService.TranslationService" android:process=":lingueeService"/>
+        <service android:enabled="true" android:name="com.linguee.linguee.offlineDictionaries.InstallationService"/>
+        <receiver android:name="com.linguee.linguee.notification.NotificationBroadcastReceiver"/>
+        <receiver android:exported="true" android:name="com.linguee.linguee.tools.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_licenses" android:name="com.linguee.linguee.LicensesActivity" android:parentActivityName="com.linguee.linguee.PrivacyActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.linguee.linguee.PrivacyActivity"/>
+        </activity>
+        <activity android:label="Select Language" android:name="com.linguee.linguee.languagePairActivity.LanguageChooserActivity" android:parentActivityName="com.linguee.linguee.MainActivity"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <provider android:authorities="com.linguee.linguee.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

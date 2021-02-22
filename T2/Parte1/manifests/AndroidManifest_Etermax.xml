@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="com.etermax.preguntados.lite" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.GET_ACCOUNTS"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.etermax.preguntados.PreguntadosApplication" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/PreguntadosAppTheme" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-5949819189111591~4635828264"/>
+        <meta-data android:name="com.bugsnag.android.API_KEY" android:value="e3b772ed84fb1177983564e6def90a43"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <activity android:name="com.etermax.preguntados.splash.presentation.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.etermax.preguntados.ui.dashboard.tabs.NewConversationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="shop" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="newgame" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ranking" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="profile" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="friendprofile" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="questionfactory" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="suggestquestion" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ratequestion" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="myquestions" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="translatequestion" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="menu" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="popup" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="machineroom" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="album" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="creategame" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="tradestand" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="triviaton" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="classictournament" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="account" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="survival" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="dailyquestion" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="single_mode_topics" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="missions" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="news" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="achievements" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="settings" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="help" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="facebook" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="myprofile" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="questionsfactory" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="friends" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pic_duel" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="tug_of_war" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/dynamic_link_domain" android:scheme="http"/>
+                <data android:host="@string/dynamic_link_domain" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/dynamic_link_domain_deprecated" android:scheme="http"/>
+                <data android:host="@string/dynamic_link_domain_deprecated" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ladder" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="pet" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="trophies" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="playoff" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="lucky_shot" android:scheme="@string/deep_link_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/new_game" android:launchMode="singleTop" android:name="com.etermax.preguntados.classic.newgame.presentation.NewGameActivity" android:parentActivityName="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity"/>
+        </activity>
+        <activity android:label="@string/album" android:name="com.etermax.preguntados.gacha.album.GachaAlbumActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/tutorial_title_02" android:name="com.etermax.preguntados.gacha.machines.GachaMachineRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/choose_character" android:name="com.etermax.preguntados.gacha.card.GachaOwnedCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.ui.game.category.CategoryActivity" android:parentActivityName="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.classic.single.presentation.SingleQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.classic.single.SelectCategoryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/question" android:launchMode="singleTop" android:name="com.etermax.preguntados.ui.game.question.duel.QuestionDuelActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/settings" android:name="com.etermax.preguntados.ui.settings.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/account" android:name="com.etermax.preguntados.ui.settings.AccountActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/help" android:name="com.etermax.preguntados.ui.help.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/shop" android:name="com.etermax.preguntados.ui.shop.ShopInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/questions_factory" android:name="com.etermax.preguntados.questionfactory.presentation.QuestionsFactoryActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/suggest_question" android:name="com.etermax.preguntados.questionfactory.suggestquestion.SuggestQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/rate_question" android:name="com.etermax.preguntados.questionfactory.ratequestion.main.RateQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/report_question" android:name="com.etermax.preguntados.questionfactory.ratequestion.report.ReportQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/my_questions" android:name="com.etermax.preguntados.questionfactory.statistics.StatisticsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/suggested_questions" android:name="com.etermax.preguntados.questionfactory.statistics.questionsstate.SuggestedQuestionsStatsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/translated_questions" android:name="com.etermax.preguntados.questionfactory.statistics.questionsstate.TranslatedQuestionsStatsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.questionfactory.translatequestion.TranslateQuestionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/profile" android:name="com.etermax.preguntados.profile.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/friend_plural" android:name="com.etermax.preguntados.profile.tabs.social.friendslist.FriendsListActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/player_achievements" android:name="com.etermax.preguntados.ui.achievements.AchievementsActivity" android:parentActivityName="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.etermax.preguntados.ui.dashboard.tabs.DashboardTabsActivity"/>
+        </activity>
+        <activity android:configChanges="orientation" android:launchMode="singleTop" android:name="com.etermax.tools.social.twitter.TwitterLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:launchMode="standard" android:name="com.etermax.tools.bugcatcher.CrashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="orientation" android:exported="true" android:label="@string/chat" android:name="com.etermax.preguntados.ui.chat.ChatActivity"/>
+        <activity android:configChanges="orientation" android:name="com.etermax.preguntados.ui.newfeeds.AppboyFeedActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.etermax.preguntados.questionfactory.gallery.PreguntadosGalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/friend_plural" android:name="com.etermax.preguntados.friends.FriendsSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.etermax.preguntados.gacha.trade.TradeRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.etermax.preguntados.rankingbooster.presentation.welcomeback.WelcomeBackRankingBoosterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="@string/shop" android:name="com.etermax.preguntados.shop.presentation.window.ShopActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.etermax.preguntados.debug.DebugActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.debug.sharedprefs.DebugSharedPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.ui.classictournament.ClassicTournamentLoadingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.ranking.presentation.tutorial.RankingTutorialActivity" android:theme="@style/TransparentCompat"/>
+        <activity android:name="com.etermax.preguntados.rankingbooster.presentation.iap.RankingBoosterIAPActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.loading.presentation.LoadingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.etermax.preguntados.shop.deeplink.presentation.ShopPurchaseActivity" android:screenOrientation="portrait" android:theme="@style/BuyProductDeepLink">
+            <intent-filter android:label="@string/deep_link_label">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="buy-product" android:scheme="@string/shop_deep_link_scheme"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.etermax.preguntados.notification.services.RejectGameService"/>
+        <receiver android:exported="true" android:name="com.appsflyer.SingleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.etermax.preguntados.notification.LocalNotificationReceiver"/>
+        <activity android:name="com.etermax.gamescommon.login.accountmanager.shared.AccountToastActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.missions.v4.presentation.view.MissionsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.bonusroulette.v2.presentation.selector.BonusRouletteSelectorActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.etermax.gamescommon.login.accountmanager.shared.AccountAuthenticatorService" android:process=":auth_service">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <receiver android:exported="false" android:name="com.etermax.preguntados.appboy.receiver.AppboyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.etermax.preguntados.lite.intent.APPBOY_PUSH_RECEIVED"/>
+                <action android:name="com.etermax.preguntados.lite.intent.APPBOY_NOTIFICATION_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.appboy.ui.AppboyWebViewActivity" android:theme="@android:style/Theme"/>
+        <activity android:name="com.appboy.ui.activities.AppboyFeedActivity" android:theme="@android:style/Theme"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.singlemodetopics.v4.presentation.main.MainActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.etermax.preguntados.firebase.FcmMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.etermax.preguntados.utils.network.interceptor.ExpiredSessionActivity" android:theme="@style/Translucent"/>
+        <receiver android:exported="false" android:name="com.etermax.preguntados.sharing.ShareSelectionReceiver"/>
+        <activity android:name="com.etermax.preguntados.survival.v2.ranking.presentation.LobbyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.survival.v2.presentation.game.GameActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.survival.v2.presentation.finish.FinishGameActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.survival.v2.ranking.presentation.info.InfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.ranking.v2.presentation.endseason.EndSeasonActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.ranking.v2.presentation.league.LeaguesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.etermax.preguntados.picduel.PicDuelActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.tugofwar.v1.presentation.navigation.NavigationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.tugofwar.v1.presentation.playoff.PlayoffNavigationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.playoff.presentation.lobby.LobbyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.playoff.presentation.rules.RulesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.playoff.presentation.tournament.TournamentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.playoff.presentation.finish.FinishActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.playoff.cups.presentation.CupsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.classic.tournament.presentation.join.JoinActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.classic.tournament.presentation.ranking.RankingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.classic.tournament.presentation.collect.CollectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.classic.tournament.presentation.dismiss.DismissActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.classic.tournament.presentation.info.InfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.triviathon.gameplay.presentation.main.TriviathonActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.pickaprize.PickAPrizeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.triviaintro.presentation.TriviaIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.ladder.LadderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.dailyquestion.v4.presentation.welcome.DailyQuestionMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.dailyquestion.v4.presentation.collect.CollectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.dailyquestion.v4.presentation.question.QuestionActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="applovin.sdk.key" android:value="P3i2REym8Mxdisaa7cTwqehV80GdfZw4dc63s2p_Okc6aCghpDbcsI7_JOd-yX2Z99d0BQ_a9cgkpLQcZ1EQJL"/>
+        <activity android:configChanges="keyboard|orientation" android:exported="true" android:name="com.mintegral.msdk.activity.MTGCommonActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:name="com.chartboost.sdk.CBImpressionActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <activity android:name="com.etermax.ads.google.mediation.mediumrectangle.DfpMediumInterstitialActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.amazon.device.ads.DTBActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="intent" android:scheme="amazonmobile"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.monet.bidder.MonetDfpActivity"/>
+        <activity android:name="com.etermax.ads.google.admob.AdMobLeakActivity"/>
+        <activity android:name="com.etermax.ads.testserver.TestFullscreenActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.etermax.ads.core.space.infrastructure.adapter.mask.activity.MaskActivity" android:theme="@style/TranslucentActivityTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.privacy.ConsentDialogActivity" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:theme="@style/MoPubFullscreenTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.ControllerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyInterstitialActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyAdViewActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:label="HyprMX SDK" android:launchMode="singleTop" android:name="com.hyprmx.android.sdk.activity.HyprMXOfferViewerActivity" android:theme="@style/hyprmx_ActivityTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.hyprmx.android.sdk.activity.HyprMXRequiredInformationActivity" android:theme="@style/hyprmx_RequiredInfoTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.hyprmx.android.sdk.activity.HyprMXNoOffersActivity" android:theme="@style/hyprmx_ActivityTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.hyprmx.android.sdk.videoplayer.HyprMXVideoPlayerActivity" android:theme="@style/hyprmx_ActivityTheme"/>
+        <provider android:authorities="com.etermax.preguntados.lite.com.hyprmx.android.hyprmxfileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.hyprmx.android.sdk.utility.HyprMXFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/hyprmx_provider_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubFullscreenActivity" android:theme="@style/MoPubFullscreenTheme"/>
+        <provider android:authorities="com.etermax.preguntados.lite.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.etermax.preguntados.sharing.SharingFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name="com.etermax.piggybank.presentation.minishop.view.PiggyBankActivity" android:theme="@style/Theme.AppCompat.Transparent"/>
+        <activity android:name="com.etermax.chat.ui.BaseChatActivity"/>
+        <activity android:configChanges="orientation" android:exported="true" android:label="@string/chat" android:name="com.etermax.preguntados.ui.chat.ChatActivity_"/>
+        <activity android:name="com.etermax.gamescommon.webview.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.pet.presentation.home.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.pet.presentation.name.IntroActivity" android:noHistory="true" android:theme="@style/PetIntroTheme"/>
+        <activity android:name="com.etermax.preguntados.pet.presentation.name.NameActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/PetNameTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.etermax.preguntados.pet.presentation.tutorial.PetStepsTutorialActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.pet.customization.presentation.CustomizationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.guessgrab.presentation.navigation.GuessGrabNavigationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.welcomebackpack.presentation.WelcomeBackPackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.missions.presentation.MissionsV2NavigationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.questionwidgets.presentation.template.QuestionTemplateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.preguntados.widgets.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.etermax.triviacommon.gallery.GalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.appboy.AppboyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.etermax.preguntados.lite.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.etermax.preguntados.lite" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.appboy.ui.activities.AppboyContentCardsActivity"/>
+        <activity android:name="com.appboy.push.AppboyNotificationRoutingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="false" android:name="com.appboy.AppboyFcmReceiver"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.etermax.preguntados.lite.leakcanary-installer" android:exported="false" android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.criteo.publisher.CriteoInterstitialActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <provider android:authorities="com.etermax.preguntados.lite.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="com.etermax.preguntados.lite.IronsourceLifecycleProvider" android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.etermax.preguntados.lite.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+        <provider android:authorities="com.etermax.preguntados.lite.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.etermax.preguntados.lite.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.applovin.adview.AppLovinInterstitialActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="com.applovin.sdk.AppLovinWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerDetailActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.applovin.mediation.MaxDebuggerMultiAdActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme"/>
+        <service android:exported="false" android:name="com.applovin.impl.sdk.utils.AppKilledService" android:stopWithTask="false"/>
+        <service android:exported="false" android:name="com.applovin.impl.adview.activity.FullscreenAdService" android:stopWithTask="false"/>
+        <provider android:authorities="com.etermax.preguntados.lite.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
+        <provider android:authorities="com.etermax.preguntados.lite.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.etermax.preguntados.lite.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.0.3"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.appboy.receivers.AppboyActionReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:label="Pollfish" android:name="com.pollfish.activities.PollfishOverlayActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity" android:screenOrientation="fullUser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.fyber.inneractive.sdk.activities.InneractiveFullscreenAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.fyber.inneractive.sdk.activities.InneractiveRichMediaVideoPlayerActivityCore" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.fyber.inneractive.sdk.video.IAVideoKit">
+            <intent-filter>
+                <action android:name="com.fyber.inneractive.sdk.intent.action.REGISTER_KIT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.fyber.inneractive.sdk.mraid.IAMraidKit">
+            <intent-filter>
+                <action android:name="com.fyber.inneractive.sdk.intent.action.REGISTER_KIT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.mintegral.msdk.out.LoadingActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.ogury.cm.ConsentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name="io.presage.common.profig.schedule.ProfigAlarmReceiver"/>
+        <service android:exported="false" android:name="io.presage.common.profig.schedule.ProfigSyncIntentService"/>
+        <service android:exported="false" android:name="io.presage.common.profig.schedule.ProfigJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.presage.interstitial.ui.InterstitialActivity" android:theme="@style/Presage.AdScreen.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.presage.interstitial.ui.InterstitialAndroid8TransparentActivity" android:theme="@style/Presage.AdScreen.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.presage.interstitial.ui.InterstitialAndroid8RotableActivity" android:theme="@style/Presage.AdScreen"/>
+        <activity android:name="io.presage.mraid.browser.ShortcutActivity" android:theme="@style/Presage.AdScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="io.presage.mraid.browser.Android8AndLaterShortcutActivity" android:theme="@style/Presage.AdScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.UserPresentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.TimeSetReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.CarrierConfigChangedReceiver">
+            <intent-filter>
+                <action android:name="android.telephony.action.CARRIER_CONFIG_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.NextAlarmClockChangedReceiver">
+            <intent-filter>
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.EventReminderReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.EVENT_REMINDER"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.BluetoothReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_DETACHED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.ogury.analytics.receiver.PackageFullyRemovedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.ogury.analytics.receiver.AlarmReceiver"/>
+        <activity android:name="com.ogury.analytics.activity.SBActivity" android:taskAffinity="com.ogury.analytics.activity.SBActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:enabled="true" android:exported="false" android:name="com.ogury.analytics.service.SdkService"/>
+        <service android:name="com.ogury.analytics.service.SdkJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.ogury.analytics.service.SMJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.bugsnag.android.BUILD_UUID" android:value="524b45dc-d6b6-4a0f-bae0-dd0a3de21f69"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

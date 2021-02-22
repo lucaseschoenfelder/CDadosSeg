@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="27" android:compileSdkVersionCodename="P" android:installLocation="auto" package="com.google.android.apps.adwords" platformBuildVersionCode="27" platformBuildVersionName="P">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <permission android:name="com.google.android.apps.adwords.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.apps.adwords.permission.C2D_MESSAGE"/>
+    <application android:fullBackupContent="@xml/autobackupscheme" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.google.android.apps.adwords.AwmApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <service android:exported="false" android:name="com.google.android.apps.adwords.service.logging.ClearcutLogService"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.InitialLoadingActivity" android:theme="@style/Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.awmonboarding.AwmOnBoardingActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_home" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.home.HomeActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_settings" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.settings.SettingsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_notifications" android:name="com.google.android.apps.adwords.notifications.NotificationsActivity" android:parentActivityName="com.google.android.apps.adwords.home.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.home.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_notifications" android:name="com.google.android.apps.adwords.extnotification.NotificationListActivity" android:parentActivityName="com.google.android.apps.adwords.home.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.home.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_account_explorer" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.accountselection.AccountSelectionActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_account_explorer" android:name="com.google.android.apps.adwords.settings.mccaccountpicker.MccAccountPickerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_campaigns" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.campaign.table.CampaignTableActivity" android:parentActivityName="com.google.android.apps.adwords.home.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.home.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_campaign" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.campaign.detail.CampaignDetailActivity" android:parentActivityName="com.google.android.apps.adwords.campaign.table.CampaignTableActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.campaign.table.CampaignTableActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.google.android.apps.adwords.campaign.bidmodifier.CampaignBidModifierTableActivity" android:parentActivityName="com.google.android.apps.adwords.campaign.detail.CampaignDetailActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.campaign.detail.CampaignDetailActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_adgroups" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.adgroup.table.AdGroupTableActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_adgroup" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.adgroup.detail.AdGroupDetailActivity" android:parentActivityName="com.google.android.apps.adwords.adgroup.table.AdGroupTableActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.adgroup.table.AdGroupTableActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.google.android.apps.adwords.adgroup.bidmodifier.AdGroupBidModifierTableActivity" android:parentActivityName="com.google.android.apps.adwords.adgroup.detail.AdGroupDetailActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.adgroup.detail.AdGroupDetailActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_keywords" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.adgroupcriterion.table.AdGroupCriterionTableActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_keywords" android:name="com.google.android.apps.adwords.adgroupcriterion.editing.KeywordEditingActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_ads" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.ad.table.AdTableActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:label="@string/table_header_ad" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.ad.settings.AdSettingsActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:parentActivityName="com.google.android.apps.adwords.home.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.home.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities_detail_bid_lowering" android:name="com.google.android.apps.adwords.opportunity.bidlowering.BidLoweringOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.google.android.apps.adwords.opportunity.keywordbundle.KeywordBundleOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities_detail_budget_raising" android:name="com.google.android.apps.adwords.opportunity.budgetraising.BudgetRaisingOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities_detail_first_page_bid" android:name="com.google.android.apps.adwords.opportunity.firstpage.FirstPageBidOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities_detail_first_position_bid" android:name="com.google.android.apps.adwords.opportunity.firstposition.FirstPositionBidOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_opportunities_detail_top_of_page_bid" android:name="com.google.android.apps.adwords.opportunity.topofpage.TopOfPageBidOpportunityListActivity" android:parentActivityName="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity" android:theme="@style/OppDetailTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.opportunity.summarylist.OpportunitySummariesActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/billing_home" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.billingui.BillingActivity" android:parentActivityName="com.google.android.apps.adwords.home.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.adwords.home.HomeActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:exported="true" android:label="@string/license_disclosure_link" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.legal.LicenseActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="true" android:label="@string/about" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.legal.AboutActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.apps.adwords.videoplay.YouTubeVideoPlayActivity" android:screenOrientation="sensor" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/header_leadgen_form" android:name="com.google.android.apps.adwords.leadgen.LeadgenFormActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:label="Testing" android:launchMode="singleTop" android:name="com.google.android.apps.adwords.apptesting.TestingActivity"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.ads.conversiontracking.InstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.google.android.apps.adwords"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.apps.adwords.pushnotification.AwmGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.android.apps.adwords.pushnotification.AwmInstanceIdListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.apps.adwords.pushnotification.NotificationDismissalBroadcastReceiver"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.libraries.hats20.SurveyPromptActivity" android:theme="@style/HatsLibPromptTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.google.android.libraries.hats20.ShowSurveyActivity" android:theme="@style/TransparentActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseMenuActivity" android:theme="@style/Theme.AppCompat.Light"/>
+        <activity android:exported="false" android:label="@string/preferences_license_title" android:name="com.google.android.libraries.social.licenses.LicenseActivity" android:theme="@style/Theme.AppCompat.Light"/>
+        <receiver android:exported="false" android:name="com.google.android.libraries.social.silentfeedback.nobinder.SilentFeedbackReceiver" android:process=":crash_report"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

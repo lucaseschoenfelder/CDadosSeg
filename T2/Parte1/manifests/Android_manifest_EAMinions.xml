@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:theme="@android:style/Theme.NoTitleBar" package="com.ea.gp.minions" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:banner="@drawable/app_banner" android:debuggable="false" android:icon="@drawable/app_icon" android:isGame="true" android:label="@string/app_name" android:name="com.ea.gp.minions.MinionsApplication" android:resizeableActivity="false">
+        <activity android:label="@string/app_name" android:name="com.ea.gp.minions.LaunchActivity" android:noHistory="true" android:resizeableActivity="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.ea.gp.minions.MainActivity" android:resizeableActivity="false" android:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="minions"/>
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true"/>
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true"/>
+            <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="true"/>
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity"/>
+        <meta-data android:name="com.ea.nimble.configuration" android:value="@string/nimble_configuration"/>
+        <meta-data android:name="com.ea.nimble.tracking.defaultEnable" android:value="@string/nimble_trackingEnableFlag"/>
+        <meta-data android:name="com.ea.nimble.mtx.enableVerification" android:value="@string/nimble_mtx_enableVerification"/>
+        <meta-data android:name="com.ea.gp.minions.NimbleActivityProxy" android:value="UnityPlayerActivityProxy"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.facebook.unity.FBUnityLoginActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:name="com.facebook.unity.FBUnityDialogsActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:exported="true" android:name="com.facebook.unity.FBUnityAppLinkActivity"/>
+        <activity android:exported="true" android:name="com.facebook.unity.FBUnityDeepLinkingActivity"/>
+        <activity android:name="com.facebook.unity.FBUnityGameRequestActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.facebook.unity.AppInviteDialogActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1458325161114829" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1458366804443998" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.WebDialogTheme" android:resource="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.ea.nimble.pushtng.gcm.sender.id" android:resource="@string/pushtng_gcm_sender_id"/>
+        <meta-data android:name="com.ea.nimble.pushtng.auth.api.key" android:resource="@string/pushtng_auth_api_key"/>
+        <meta-data android:name="com.ea.nimble.pushtng.auth.api.secret" android:resource="@string/pushtng_auth_api_secret"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.ControllerActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.supersonicads.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.jirbo.adcolony.AdColonyOverlay" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.jirbo.adcolony.AdColonyFullscreen" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.jirbo.adcolony.AdColonyBrowser" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.vungle.publisher.FullScreenAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:exported="false" android:name="com.ea.gp.minions.notifications.NotificationReceiver">
+            <intent-filter>
+                <action android:name="com.ea.gp.minions.notifications.action.SHOW"/>
+                <action android:name="com.ea.gp.minions.notifications.action.OPEN"/>
+                <action android:name="com.ea.gp.minions.notifications.action.DELETE"/>
+                <category android:name="com.ea.gp.minions"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ea.gp.minions.nimble.PushTNGBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTER"/>
+                <category android:name="com.ea.gp.minions"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.ea.gp.minions.nimble.PushTNGBroadcastForwarder">
+            <intent-filter>
+                <action android:name="com.ea.eadp.pushnotification.FORWARD_AS_ORDERED_BROADCAST"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.ea.nimble.tracking.ReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.ea.gp.minions.nimble.PushTNGIntentService"/>
+        <receiver android:name="com.ea.gp.minions.app.MediaReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.prime31.EtceteraProxyActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.prime31.WebViewActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.prime31.P31VideoPlayerActivity"/>
+        <receiver android:name="com.prime31.AlarmManagerReceiver"/>
+        <meta-data android:name="com.prime31.EtceteraPlugin" android:value="UnityPlayerActivityProxy"/>
+        <activity android:name="com.google.games.bridge.NativeBridgeActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID" android:value=""/>
+        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ 247013943331"/>
+        <meta-data android:name="com.google.android.gms.games.unityVersion" android:value="0.9.34"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity"/>
+        <provider android:authorities="com.ea.gp.minions.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.playhaven.android.view.FullScreen" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="localhost" android:pathPattern="/full" android:scheme="playhaven"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.playhaven.android.push.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="com.playhaven.android"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:hardwareAccelerated="true" android:name="com.unity3d.ads.android.view.UnityAdsFullscreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    </application>
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:name="android.hardware.touchscreen"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch"/>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.ea.gp.minions.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.ea.gp.minions.permission.C2D_MESSAGE"/>
+</manifest>
