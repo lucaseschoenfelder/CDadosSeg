@@ -11,7 +11,7 @@ path_to_apks = sys.argv[1]
 dict = {}
 for filename in os.listdir(path_to_apks):
     if filename.endswith('.xml'):
-        tree = ET.parse(path_to_apks + filename)
+        tree = ET.parse(path_to_apks + '/' + filename)
         root = tree.getroot()
         dict[filename.split('_')[1].split('.xml')[0]] = {'root' : root, 'permissions' : [], 'unique_permissions' : '[]'}
 #print(dict)
